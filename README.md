@@ -1,4 +1,4 @@
-# Math interval parser [![Build Status](https://travis-ci.org/Semigradsky/math-interval-parser.svg)](https://travis-ci.org/Semigradsky/math-interval-parser)
+# Math interval parser [![Build Status](https://travis-ci.org/Semigradsky/math-interval-parser.svg)](https://travis-ci.org/Semigradsky/math-interval-parser) [![Dependency Status](https://david-dm.org/Semigradsky/math-interval-parser.svg)](https://david-dm.org/Semigradsky/math-interval-parser)
 
 > Parse math interval. Notation is accepted as part of [ISO 31-11](http://en.wikipedia.org/wiki/ISO_31-11).
 
