@@ -1,0 +1,35 @@
+{
+  "name": "is-math-interval",
+  "version": "0.0.0",
+  "description": "Check if a string is a math interval",
+  "license": "MIT",
+  "repository": "Semigradsky/is-math-interval",
+  "author": {
+    "name": "Dmitry Semigradsky",
+    "email": "semigradskyd@gmail.com",
+    "url": "https://github.com/Semigradsky"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "node ./node_modules/mocha/bin/mocha"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "mathematics",
+    "interval",
+    "math",
+    "check",
+    "detect",
+    "is"
+  ],
+  "dependencies": {
+    "xregexp": "^2.0.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.1.0"
+  }
+}
