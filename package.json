@@ -1,9 +1,9 @@
 {
-  "name": "is-math-interval",
+  "name": "math-interval-parser",
   "version": "1.0.0",
-  "description": "Check if a string is a math interval",
+  "description": "Parse math interval",
   "license": "MIT",
-  "repository": "Semigradsky/is-math-interval",
+  "repository": "Semigradsky/math-interval-parser",
   "author": {
     "name": "Dmitry Semigradsky",
     "email": "semigradskyd@gmail.com",
@@ -22,9 +22,8 @@
     "mathematics",
     "interval",
     "math",
-    "check",
-    "detect",
-    "is"
+    "parse",
+    "parsing"
   ],
   "dependencies": {
     "xregexp": "^2.0.0"
