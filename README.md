@@ -25,7 +25,7 @@ intervalParse('(-10,20.2]'); // or intervalParse(']-10,20.2]');
 //=>         value: 20.2,
 //=>         included: true
 //=>     }
-//=>}
+//=> }
 
 intervalParse('[1e3,)'); // or intervalParse('[1e3,Infinity)');
 //=> {
@@ -37,7 +37,7 @@ intervalParse('[1e3,)'); // or intervalParse('[1e3,Infinity)');
 //=>         value: Infinity,
 //=>         included: false
 //=>     }
-//=>}
+//=> }
 ```
 
 See tests for more details.
