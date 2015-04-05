@@ -1,4 +1,5 @@
-# Math interval parser [![Build Status](https://travis-ci.org/Semigradsky/math-interval-parser.svg)](https://travis-ci.org/Semigradsky/math-interval-parser) [![Dependency Status](https://david-dm.org/Semigradsky/math-interval-parser.svg)](https://david-dm.org/Semigradsky/math-interval-parser)
+# Math interval parser
+[![Build Status](https://travis-ci.org/Semigradsky/math-interval-parser.svg)](https://travis-ci.org/Semigradsky/math-interval-parser) [![Dependency Status](https://david-dm.org/Semigradsky/math-interval-parser.svg)](https://david-dm.org/Semigradsky/math-interval-parser) [![Coverage Status](https://coveralls.io/repos/Semigradsky/math-interval-parser/badge.svg)](https://coveralls.io/r/Semigradsky/math-interval-parser)
 
 > Parse math interval. Notation is accepted as part of [ISO 31-11](http://en.wikipedia.org/wiki/ISO_31-11).
 
@@ -13,7 +14,8 @@ $ npm install --save math-interval-parser
 ## Usage
 
 ```js
-var intervalParse = require('math-interval-parser');
+import intervalParse from 'math-interval-parser';
+// or `var intervalParse = require('math-interval-parser').default;
 
 intervalParse('(-10,20.2]'); // or intervalParse(']-10,20.2]');
 //=> {

@@ -1,6 +1,6 @@
 {
   "name": "math-interval-parser",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Parse math interval",
   "license": "MIT",
   "repository": "Semigradsky/math-interval-parser",
@@ -13,11 +13,15 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "node ./node_modules/mocha/bin/mocha"
+    "test": "node ./node_modules/mocha/bin/mocha",
+    "init": "npm i & tsd reinstall -s & tsd link",
+    "lint": "tslint -f src/index.ts",
+    "build": "tsc && dts-bundle.bat"
   },
-  "files": [
-    "index.js"
-  ],
+  "main": "lib/index.js",
+  "typescript": {
+    "definition": "lib/math-interval-parser.d.ts"
+  },
   "keywords": [
     "mathematics",
     "interval",
@@ -29,6 +33,9 @@
     "xregexp": "^2.0.0"
   },
   "devDependencies": {
-    "mocha": "^2.1.0"
+    "dts-bundle": "~0.2.0",
+    "mocha": "2.*",
+    "tslint": "2.*",
+    "typescript": "latest"
   }
 }

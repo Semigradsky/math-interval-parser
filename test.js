@@ -1,7 +1,7 @@
 'use strict';
 
 var assert = require('assert');
-var parseInterval = require('./');
+var parseInterval = require('./').default;
 
 describe('Parser', function () {
 
