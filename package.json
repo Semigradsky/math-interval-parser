@@ -16,7 +16,7 @@
     "test": "mocha --reporter spec",
     "init": "npm i & tsd reinstall -s & tsd link",
     "lint": "tslint -f src/index.ts",
-    "build": "tsc && dts-bundle.bat",
+    "build": "tsc && node dts-bundle.js",
     "coveralls": "istanbul cover _mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage"
   },
   "main": "lib/index.js",
