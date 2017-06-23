@@ -1,7 +1,6 @@
-/// <reference path="../typings/tsd.d.ts" />
 'use strict';
 
-import { XRegExp } from 'xregexp';
+import * as XRegExp from 'xregexp';
 
 export interface MathInterval {
     from: {
@@ -14,6 +13,13 @@ export interface MathInterval {
     }
 }
 
+interface RegexParts {
+    leftBrace: '(' | ']' | '[',
+    fromValue?: string,
+    delimeter?: ',',
+    toValue?: string,
+    rightBrace: ')' | ']' | '['
+}
 
 
 const value = '[-+]?(?:Infinity|[[0-9]*\\.?\\d*(?:[eE][-+]?\\d+)?)';
@@ -24,8 +30,8 @@ const mathInterval = XRegExp(`(?<leftBrace>  [\\(\\]\\[] )  \
                               (?<toValue>    ${value}    )? \
                               (?<rightBrace> [\\)\\]\\[] )`, 'x');
 
-function parse(str: string): MathInterval {
-    const match: any = XRegExp.exec(str, mathInterval);
+function parse(str: string): (MathInterval | null) {
+    const match = XRegExp.exec(str, mathInterval) as RegexParts;
     if (!match) {
         return null;
     }
@@ -42,16 +48,15 @@ function parse(str: string): MathInterval {
                 +match.toValue :
                 (match.delimeter ?
                     +Infinity :
-                    +match.fromValue),
+                    match.fromValue !== undefined ?
+                        +match.fromValue :
+                        NaN),
             included: match.rightBrace === ']'
         }
     };
 }
 
 function check(interval: MathInterval): boolean {
-    if (!interval) {
-        return false;
-    }
 
     if (interval.from.value === interval.to.value) {
         return interval.from.included && interval.to.included;
@@ -60,11 +65,11 @@ function check(interval: MathInterval): boolean {
     return Math.min(interval.from.value, interval.to.value) === interval.from.value;
 }
 
-export default function entry(str: string): MathInterval {
+export default function entry(str: string): (MathInterval | null) {
     const interval = parse(str);
-    if (!check(interval)) {
+    if (!interval || !check(interval)) {
         return null;
     }
 
     return interval;
-};
+}

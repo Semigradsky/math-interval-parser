@@ -14,8 +14,8 @@
   },
   "scripts": {
     "test": "mocha --reporter spec",
-    "init": "npm i & tsd reinstall -s & tsd link",
-    "lint": "tslint -f src/index.ts",
+    "init": "npm i",
+    "lint": "tslint src/index.ts",
     "build": "tsc && node dts-bundle.js",
     "coveralls": "istanbul cover _mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage"
   },
@@ -31,7 +31,7 @@
     "parsing"
   ],
   "dependencies": {
-    "xregexp": "^2.0.0"
+    "xregexp": "^3.2.0"
   },
   "devDependencies": {
     "coveralls": "^2.11.2",
@@ -40,6 +40,6 @@
     "mocha": "2.*",
     "mocha-lcov-reporter": "0.0.2",
     "tslint": "2.*",
-    "typescript": "latest"
+    "typescript": "2.*"
   }
 }

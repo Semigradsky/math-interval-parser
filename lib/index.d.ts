@@ -1,4 +1,3 @@
-/// <reference path="../typings/tsd.d.ts" />
 export interface MathInterval {
     from: {
         value: number;
@@ -9,4 +8,4 @@ export interface MathInterval {
         included: boolean;
     };
 }
-export default function entry(str: string): MathInterval;
+export default function entry(str: string): (MathInterval | null);
