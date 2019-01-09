@@ -1,7 +1,5 @@
 'use strict';
 
-import * as XRegExp from 'xregexp';
-
 export interface MathInterval {
     from: {
         value: number,
@@ -21,17 +19,41 @@ interface RegexParts {
     rightBrace: ')' | ']' | '['
 }
 
+const patternParts = {
+	value: '[-+]?(?:Infinity|[[0-9]*\\.?\\d*(?:[eE][-+]?\\d+)?)',
+	leftBrace: '[\\(\\]\\[]',
+	delimeter: ',',
+	rightBrace: '[\\)\\]\\[]',
+};
 
-const value = '[-+]?(?:Infinity|[[0-9]*\\.?\\d*(?:[eE][-+]?\\d+)?)';
+const PATTERN = new RegExp(
+	`(${patternParts.leftBrace})` +
+	`(${patternParts.value})?` +
+	`(${patternParts.delimeter})?` +
+	`(${patternParts.value})?` +
+	`(${patternParts.rightBrace})`
+);
 
-const mathInterval = XRegExp(`(?<leftBrace>  [\\(\\]\\[] )  \
-                              (?<fromValue>  ${value}    )? \
-                              (?<delimeter>  ,           )? \
-                              (?<toValue>    ${value}    )? \
-                              (?<rightBrace> [\\)\\]\\[] )`, 'x');
+function execPattern(str: string): RegexParts | null {
+	const match = PATTERN.exec(str);
+
+	if (!match) {
+		return null;
+	}
+
+	const [_, leftBrace, fromValue, delimeter, toValue, rightBrace] = match;
+
+	return {
+		leftBrace,
+		fromValue,
+		delimeter,
+		toValue,
+		rightBrace,
+	} as RegexParts;
+}
 
 function parse(str: string): (MathInterval | null) {
-    const match = XRegExp.exec(str, mathInterval) as RegexParts;
+    const match = execPattern(str) as RegexParts;
     if (!match) {
         return null;
     }
